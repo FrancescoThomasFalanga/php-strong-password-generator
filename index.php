@@ -1,25 +1,33 @@
 <?php
 
-function randomPasswordGenerator() {
+// function randomPasswordGenerator() {
 
-    $length = $_GET["length"] ?? "";
+//     $length = $_GET["length"] ?? "";
 
-    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890;:_-.,+?^=)(/&%$"!|';
+//     $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890;:_-.,+?^=)(/&%$"!|';
 
-    $pass = array();
+//     $pass = array();
 
-    $alphaLength = strlen($alphabet) - 1;
+//     $alphaLength = strlen($alphabet) - 1;
 
-    for ($i = 0; $i < $length; $i++) {
+//     for ($i = 0; $i < $length; $i++) {
 
-        $n = rand(0, $alphaLength);
-        $pass[] = $alphabet[$n];
+//         $n = rand(0, $alphaLength);
+//         $pass[] = $alphabet[$n];
         
-    }
+//     }
 
-    return implode($pass);
+//     return implode($pass);
 
-};
+// };
+
+function randomPasswordGenerator( $length ) {
+
+    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789;:_-.,+?^=)(/&%$!|";
+    return substr(str_shuffle($chars),0,$length);
+
+}
+
 
 ?>
 
@@ -52,7 +60,7 @@ function randomPasswordGenerator() {
 
         <div class="mt-5 fs-2">
 
-            La tua Password è: <strong> <?php echo randomPasswordGenerator() ?> </strong>
+            La tua Password è: <strong> <?php echo randomPasswordGenerator( $_GET["length"] ) ?> </strong>
 
         </div>
 
