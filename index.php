@@ -1,33 +1,6 @@
 <?php
 
-// function randomPasswordGenerator() {
-
-//     $length = $_GET["length"] ?? "";
-
-//     $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890;:_-.,+?^=)(/&%$"!|';
-
-//     $pass = array();
-
-//     $alphaLength = strlen($alphabet) - 1;
-
-//     for ($i = 0; $i < $length; $i++) {
-
-//         $n = rand(0, $alphaLength);
-//         $pass[] = $alphabet[$n];
-        
-//     }
-
-//     return implode($pass);
-
-// };
-
-function randomPasswordGenerator( $length ) {
-
-    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789;:_-.,+?^=)(/&%$!|";
-    return substr(str_shuffle($chars),0,$length);
-
-}
-
+include "./partials/functions.php";
 
 ?>
 
@@ -51,8 +24,8 @@ function randomPasswordGenerator( $length ) {
 
         <form action="index.php" method="GET" class="d-flex justify-content-center align-items-center gap-3 mt-5">
 
-            <label for="exampleFormControlInput1" class="form-label m-0">In caratteri:</label>
-            <input name="length" type="number" class="form-control" placeholder="Scegli la lunghezza" style="width:200px">
+            <label for="exampleFormControlInput1" class="form-label m-0">Minimo 6 caratteri:</label>
+            <input name="length" type="number" class="form-control" style="width:100px" min="6">
 
             <button type="submit" class="btn btn-primary">Genera Password</button>
 
