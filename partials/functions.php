@@ -26,8 +26,12 @@ function randomPasswordGenerator( $length ) {
     if ($length != null) {
 
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789;:_-.,+?^=)(/&%$!|";
+
+        header("Location: ./result.php");
+
         return substr(str_shuffle($chars),0,$length);
 
     };
+    
 
 }
